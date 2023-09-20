@@ -10,9 +10,9 @@ class PostViewSet(viewsets.ModelViewSet):
     """Вьюсет для модели Post."""
     serializer_class = PostSerializer
     queryset = Post.objects.all().select_related('author')
-    permission_classes = [
+    permission_classes = (
         permissions.IsAuthenticated, AuthorOrReadOnly
-    ]
+    )
 
     def perform_create(self, serializer):
         """Функция создания нового поста."""
@@ -28,9 +28,9 @@ class GroupViewSet(viewsets.ReadOnlyModelViewSet):
 class CommentViewSet(viewsets.ModelViewSet):
     """Вьюсет для модели Comment."""
     serializer_class = CommentSerializer
-    permission_classes = [
+    permission_classes = (
         permissions.IsAuthenticated, AuthorOrReadOnly
-    ]
+    )
 
     def get_queryset(self):
         """Функция получения комментариев к определенному посту."""
