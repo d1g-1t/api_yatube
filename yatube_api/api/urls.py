@@ -4,8 +4,6 @@ from django.urls import include, path
 
 from api.views import GroupViewSet, PostViewSet, CommentViewSet
 
-"""Настраиваем эндпоинты согласно заданию и вьюсетам."""
-
 router = DefaultRouter()
 router.register(r'posts', PostViewSet)
 router.register(r'groups', GroupViewSet)
